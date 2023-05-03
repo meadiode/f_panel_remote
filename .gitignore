@@ -4,6 +4,8 @@ build/*
 *.pyd
 *gerbers/*
 hardware/*/gerbers
+hardware/*/bom
+hardware/*/#auto_saved_files#
 hardware/*/*-cache
 hardware/*/*-backups
 *.kicad*-bak

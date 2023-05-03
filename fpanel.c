@@ -22,14 +22,14 @@ static void fpanel_task(void *params);
 
 void fpanel_init(void)
 {
-    // gpio_init(POWER_BTN_GPIO);
-    // gpio_init(RESET_BTN_GPIO);
+    gpio_init(POWER_BTN_GPIO);
+    gpio_init(RESET_BTN_GPIO);
     
-    // gpio_set_dir(POWER_BTN_GPIO, GPIO_OUT);
-    // gpio_set_dir(RESET_BTN_GPIO, GPIO_OUT);
+    gpio_set_dir(POWER_BTN_GPIO, GPIO_OUT);
+    gpio_set_dir(RESET_BTN_GPIO, GPIO_OUT);
     
-    // gpio_put(POWER_BTN_GPIO, 0);
-    // gpio_put(RESET_BTN_GPIO, 0);
+    gpio_put(POWER_BTN_GPIO, 0);
+    gpio_put(RESET_BTN_GPIO, 0);
 
     adc_gpio_init(POWER_LED_SENSE_GPIO);
     adc_gpio_init(HDD_LED_SENSE_GPIO);
@@ -89,13 +89,13 @@ static void fpanel_task(void *params)
             if (mjson_get_bool(buf, data_len, "$.btn_power_press", &res))
             {
                 bpwr = res ? 1 : 0;
-                // gpio_put(POWER_BTN_GPIO, res);
+                gpio_put(POWER_BTN_GPIO, res);
             }
 
             if (mjson_get_bool(buf, data_len, "$.btn_reset_press", &res))
             {
                 brst = res ? 1 : 0;
-                // gpio_put(RESET_BTN_GPIO, res);
+                gpio_put(RESET_BTN_GPIO, res);
             }
 
             if (mjson_get_string(buf, data_len, "$.disp_str", dbuf, sizeof(dbuf)) != -1)
