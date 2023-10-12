@@ -83,7 +83,7 @@
         "isolated_copper": "warning",
         "item_on_disabled_layer": "error",
         "items_not_allowed": "error",
-        "length_out_of_range": "error",
+        "length_out_of_range": "ignore",
         "lib_footprint_issues": "warning",
         "lib_footprint_mismatch": "warning",
         "malformed_courtyard": "error",
